@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        html,body{height:100%;overflow:hidden;}
+        body,div,h2{margin:0;padding:0;}
+        #overLay{position:absolute;left:0;top:0;height:100%;width:100%;background:rgba(0,0,0,0.5);display:none;}
+        #win{position:absolute;left:50%;top:50%;margin-top:-100px;margin-left:-200px;width:400px;height:200px;border:4px solid #f90;background:#e0e0e0;display:none;}
+        #win h2{height:50px;border-bottom:2px solid #f90;text-align:right;line-height:50px;}
+        #win h2 span{font-size:24px;color:#f90;padding:0px 5px;cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div id="overLay"></div>
+    <div id="win"><h2><span id="close">X</span></h2></div>
+    <center><button>弹出框</button></center>
+</body>
+<script type="text/javascript">
+    var oLay = document.getElementById('overLay');
+    var oWin = document.getElementById('win');
+    var oClose = document.getElementById('close');
+    var oBtn = document.getElementsByTagName('button')[0];
+
+    oBtn.onclick = function(){
+        oLay.style.display = 'block';
+        oWin.style.display = "block";
+    };
+
+    oClose.onclick = function(){
+        oWin.style.display = "none";
+        oLay.style.display = "none";
+
+    };
+</script>
+</html>
