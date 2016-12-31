@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css" media="screen">
+        body,ul,li,h2,p{margin:0;padding:0;}
+        body{font:12px/1.5 Tahoma;}
+        #calender{width: 248px;margin:0 auto;margin-top:10px;background: #f1f1f1;padding:10px;}
+        #calender>ul{list-style:none;overflow:hidden;zoom:1;}
+        #calender>ul>li{background: #666;width: 40px;height: 40px;padding:5px;float: left;margin:0 10px 10px 0;text-align:center;color:white;border:1px solid #333;font-size:14px;}
+        #calender ul li.current{background: pink;color:black;}
+        #calender>ul>li>strong{display:block;font-size:16px;}
+        #msg{background: #633;padding:5px;}
+        #msg{border:1px solid #000;}
+        #msg h2{font-size:16px;}
+    </style>
+</head>
+<body>
+    <div id="calender">
+        <ul>
+            <li><strong>1</strong>JAN</li>
+            <li><strong>2</strong>FER</li>
+            <li><strong>3</strong>MAR</li>
+            <li><strong>4</strong>APR</li>
+            <li><strong>5</strong>MAY</li>
+            <li class="current"><strong>6</strong>JUN</li>
+            <li><strong>7</strong>JUL</li>
+            <li><strong>8</strong>AUG</li>
+            <li><strong>9</strong>SEP</li>
+            <li><strong>10</strong>OCT</li>
+            <li><strong>11</strong>NOV</li>
+            <li><strong>12</strong>DEC</li>
+        </ul>
+        <div id="msg">
+            <h2><strong>6</strong>月节日</h2>
+            <p>端午节：6月4日至6日放假3天。</p>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function(){
+        var oUl = document.getElementsByTagName('ul')[0];
+        var oUlLis = oUl.getElementsByTagName('li');
+        var oMsg = document.getElementById('msg');
+        var oStrong = oMsg.getElementsByTagName("strong")[0];
+        var oP = oMsg.getElementsByTagName("p")[0];
+
+        var oArray = [
+            "元旦：1月1日至3日放假三天。",
+            "春节：2月2日至8日放假7天。",
+            "妇女节：3月8日妇女节，与我无关。",
+            "清明节：4月3日至5日放假3天",
+            "劳动节：4月30日至5月2日放假3天。",
+            "端午节：6月4日至6日放假3天。",
+            "小暑：7月7日小暑。不放假。",
+            "七夕节：8月6日七夕节。不放假。",
+            "中秋节：9月10日至12日放假3天。",
+            "国庆节：10月1日至7日放假7天。",
+            "立冬：11月8日立冬。不放假。",
+            "艾滋病日:12月1日<br />废除奴隶制国际日:12月2日。"
+        ];
+
+        for(var i =0;i<oUlLis.length;i++){
+            oUlLis[i].index = i;
+            oUlLis[i].onmouseover = function(){
+                for(var i=0; i< oUlLis.length;i++){
+                    oUlLis[i].className = '';
+                }
+                this.className = 'current';
+
+                //显示
+                oStrong.innerHTML = this.index +1;
+                oP.innerHTML = oArray[this.index];
+            };
+        }
+    };
+</script>
+</html>
